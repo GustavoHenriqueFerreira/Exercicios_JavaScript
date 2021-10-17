@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Preço Maça</title>
+</head>
+
+<body>
+
+    <h1>Preço das maçãs</h1>
+
+    <form id="formprecomaca">
+        <input type="number" required name="quantidademaca" id="quantidadeMaca">
+        <button type="submit" id="btnCalcular">Calcular</button>
+    </form>
+
+    <script>
+        let maca6 = 0.30;
+
+        let maca12 = 0.25;
+
+        let quantidadeMaca = document.querySelector('#quantidadeMaca');
+
+        let btnCalcular = document.querySelector('#btnCalcular');
+
+        btnCalcular.addEventListener('click', function(pagina) {
+
+            pagina.preventDefault();
+
+            if (parseInt(quantidadeMaca.value) <= 6) {
+                var totalCompra = parseInt(quantidadeMaca.value) * maca6;
+            }
+
+            else {
+                totalCompra = parseInt(quantidadeMaca.value) * maca12;
+            }
+
+            console.log(totalCompra);
+        });
+    </script>
+
+</body>
+
+</html>
