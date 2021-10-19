@@ -5,12 +5,10 @@ equivalente booleano para o valor passado no argumento for `true`, ou `false`
 para o contrário.
 */
 var isTruthy = parametro => {
-    if (parametro) {
+    if (parametro) 
         return true
-    }
-    else {
+    else 
         return false
-    }
 }
 
 // Invoque a função criada acima, passando todos os tipos de valores `falsy`.
@@ -48,14 +46,14 @@ seguintes propriedades (os valores devem ser do tipo mostrado abaixo):
 - `quantidadePessoas` - Number - zero por padrão
 */
 var carro = new Object();
-this.marca = "Chevrolet"
-this.modelo = "Onix"
-this.placa = "ABC1234"
-this.ano = 2016
-this.cor = "Vermelho"
-this.quantasPortas = 4
-this.assentos = 5
-this.quantidadePessoas = 0;
+carro.marca = "Chevrolet"
+carro.modelo = "Onix"
+carro.placa = "ABC1234"
+carro.ano = 2016
+carro.cor = "Vermelho"
+carro.quantasPortas = 4
+carro.assentos = 5
+carro.quantidadePessoas = 0;
 
 /*
 Crie um método chamado `mudarCor` que mude a cor do carro conforme a cor
@@ -110,26 +108,24 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 "Só cabem mais [QUANTIDADE_DE_PESSOAS_QUE_CABEM] pessoas!"
 - Se couber somente mais uma pessoa, mostrar a palavra "pessoa" no retorno
 citado acima, no lugar de "pessoas".
+*/
 
-//TESTAR
-carro.adicionarPessoas = numeroPessoas => {
-    numeroPessoas = carro.quantidadePessoas;
-    if (numeroPessoas >= 0 & carro.quantidadePessoas === carro.assentos) {
-        return "O carro já está lotado!";
-    }
+
+
+carro.adicionarPessoas = numeroPessoas => {  
+    let assentosRestantes = carro.assentos - carro.quantidadePessoas;
     
-    if (carro.assentos - numeroPessoas > 1){
-        return `Só cabem mais ${(carro.assentos - carro.quantidadePessoas)} pessoas!`;
-    }
+    if (assentosRestantes < numeroPessoas){
+        if (carro.quantidadePessoas == carro.assentos)
+            return `Já temos ${carro.quantidadePessoas} pessoas no carro, O carro já está lotado!`;
 
-    if((carro.assentos - carro.quantidadePessoas) === 1){
-        return `Só cabe mais uma pessoa!`;
+        if (assentosRestantes === 1)
+            return "Só cabe mais 1 pessoa";
+        else
+            return `Só cabem mais ${assentosRestantes} pessoas`;
     }
-
-    else{
-        carro.quantidadePessoas += numeroPessoas;
-        return `Já temos ${numeroPessoas}} pessoas no carro!`;
-    }
+    carro.quantidadePessoas = carro.quantidadePessoas + numeroPessoas;
+    return `Já temos ${carro.quantidadePessoas} pessoas no carro!`;
 }
 
 /*
@@ -137,9 +133,9 @@ Agora vamos verificar algumas informações do carro. Para as respostas abaixo,
 utilize sempre o formato de invocação do método (ou chamada da propriedade),
 adicionando comentários _inline_ ao lado com o valor retornado, se o método
 retornar algum valor.
-
-Qual a cor atual do carro?
 */
+
+//Qual a cor atual do carro?
 console.log(carro.obterCor());
 
 // Mude a cor do carro para vermelho.

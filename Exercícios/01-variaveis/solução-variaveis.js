@@ -5,11 +5,11 @@ var myvar;
 myvar = 10;
 
 // Declare uma nova variável chamada `soma`, e adicione uma instrução somando os valores.
-var soma = 10;
-soma + myvar;
+var soma;
+soma = myvar + 10;
 
 // Atribua à variável `soma` todo o valor dela, somando 1, usando o operador de soma abreviado.
-soma + 1;
+soma++;
 
 // Atribua à variável `soma` todo o valor dela, multiplicando por 3, usando o operador de multiplicação abreviado.
 soma * 3;
@@ -29,29 +29,26 @@ comidaFeijao = comida.filter( (c) => {
 });
 
 // Digite o código que verifica se a variável `soma' é igual a variável `myvar` (testando também o tipo).
-if(soma = myvar){
+if(soma = myvar & typeof(soma) == typeof(myvar))
     console.log("soma é igual a myvar");
-} else{
+else
     console.log("soma é diferente de myvar");
-}
 
 // Digite o código que verifica se a variável `myvar` é menor ou igual à variável `soma`.
-if(myvar > soma){
+if(myvar > soma)
     console.log("myvar é maior que soma");
-} else{
+else
     console.log("myvar é menor ou igual a soma");
-}
 
 // Crie uma função chamada `divisao` que receba como parâmetro dois números, e retorne o resultado da divisão entre eles.
-divisao = ()=> {
+divisao = (myvar, soma)=> {
     return `${myvar/soma}`;
 };
 
-divisao();
+divisao(myvar, soma);
 
 // Invoque a função criada acima, passando os parâmetros 10 e 2.
-segundaDivisao = ()=> {
-    return 10/2;
-};
+myvar = 10;
+soma = 2;
 
-segundaDivisao();
+console.log(divisao(myvar, soma))
