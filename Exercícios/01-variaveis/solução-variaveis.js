@@ -29,7 +29,7 @@ comidaFeijao = comida.filter( (c) => {
 });
 
 // Digite o código que verifica se a variável `soma' é igual a variável `myvar` (testando também o tipo).
-if(soma = myvar & typeof(soma) == typeof(myvar))
+if(soma = myvar && typeof(soma) == typeof(myvar))
     console.log("soma é igual a myvar");
 else
     console.log("soma é diferente de myvar");
