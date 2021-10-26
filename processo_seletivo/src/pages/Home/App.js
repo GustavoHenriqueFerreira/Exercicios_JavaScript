@@ -27,7 +27,9 @@ export default class RepositoriosUser extends Component {
   buscarRepositorios = (event) => {
     event.preventDefault();
 
-    fetch(`https://api.github.com/users/${this.state.nomeUsuario}/repos?page=1&per_page=10`)
+    /*Listar os 10 primeiros fetch(`https://api.github.com/users/${this.state.nomeUsuario}/repos?page=1&per_page=10`) */
+    /*Listar os 10 últimos atualizados fetch(`https://api.github.com/users/${this.state.nomeUsuario}/repos?per_page=10&sort=updated`) */
+    fetch(`https://api.github.com/users/${this.state.nomeUsuario}/repos?per_page=10&sort=created`)/*Listar os 10 últimos criados*/
 
       .then(resposta => resposta.json())
 
@@ -43,7 +45,7 @@ export default class RepositoriosUser extends Component {
           <div>
             <h1>Bem vindo!!! Por favor digite o nome do usuário GitHub para listar os repositórios</h1>
             <form onSubmit={this.buscarRepositorios}>
-              <input onChange={this.atualizaEstadoTitulo} placeholder="Nome do usuário"/>
+              <input onChange={this.atualizaEstadoTitulo} placeholder="Nome do usuário" />
               <button type="submit">Listar</button>
             </form>
           </div>
@@ -63,9 +65,9 @@ export default class RepositoriosUser extends Component {
                 {
                   this.state.listaRepositorios.map((repos) => {
                     return (
-                      <tr key={repos.id}>
+                      <tr key={repos.created_at}>
                         <td>{repos.id}</td>
-                        <td>{repos.login}</td>
+                        <td>{repos.name}</td>
                         <td>{repos.description}</td>
                         <td>{repos.created_at}</td>
                         <td>{repos.size}</td>
